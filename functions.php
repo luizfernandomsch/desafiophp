@@ -1,6 +1,6 @@
 
 <?php 
-var_dump($_POST);
+
 function cadastraProduto($nome, $categoria, $descricao, $quantidade, $preco, $img){
     $arquivoProdutos = "produto.json";
     
@@ -34,7 +34,7 @@ function cadastraProduto($nome, $categoria, $descricao, $quantidade, $preco, $im
 
         $produtos  = [];
         //array_push()
-        $produtos[] = ["id"=>1, "nome"=>$nome, "categoria"=>$categoria, "quantidade"=>$quantidade, "preco" =>$preco, "img"=>$img];
+        $produtos[] = ["id"=>1, "nome"=>$nome, "categoria"=>$categoria, "descricao"=>$descricao, "quantidade"=>$quantidade, "preco" =>$preco, "img"=>$img];
         //transformando array em json
         $json = json_encode($produtos);
         //salvando o json dentro de um arquivo
@@ -58,7 +58,7 @@ if($_POST){
    
     $deucerto = move_uploaded_file($localTmp, $caminhoSalvo);
 
-    echo cadastraProduto($_POST['nome'],$_POST["descricao"] ,$_POST['categoria'], $_POST["quantidade"], $_POST['preco'], $caminhoSalvo);
+    echo cadastraProduto($_POST['nome'],$_POST['categoria'], $_POST["descricao"], $_POST["quantidade"], $_POST['preco'], $caminhoSalvo);
 }
 
 
